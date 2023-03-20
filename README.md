@@ -3,10 +3,11 @@ Cascadia Motion Motor Controller CAN Protocol Documentation: https://app.box.com
 Motor Controller Manual: https://wiki.neweagle.net/docs/Rinehart/PM100_User_Manual_3_2011.pdf <BR>
 CAN Shield Arduino Library: https://github.com/DFRobot/DFRobot_MCP2515 <BR>
 Arduino docs: https://www.arduino.cc/reference/en/ <BR>
+CAN Shield product info, code example <BR>
 
 # Functional requirements
 1. Read data packets from the motor controller via CAN Bus (Perhaps try to capture the packets and print it to the screen first?)
-2. Store the data packets to memory (Note: Arduino built-in memory is NOT enough. We may need an SD card for this)
+2. Store the data packets to memory (Note: Arduino built-in memory is NOT enough. We may need an SD card for this. There is a SD card connector on the CAN Shield.)
 3. Refer to the Motor Controller's CAN Protocol docs, translate the data to readable information (This is done in a PC connected to the arduino, or after fetching the data from the Arduino)
 
 # Non-functional requirements
