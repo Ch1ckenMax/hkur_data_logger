@@ -5,7 +5,7 @@ CAN Shield Arduino Library: https://github.com/DFRobot/DFRobot_MCP2515 <BR>
 Arduino docs: https://www.arduino.cc/reference/en/ <BR>
 
 # Functional requirements
-1. Read data packets from the motor controller via CAN Bus
+1. Read data packets from the motor controller via CAN Bus (Perhaps try to capture the packets and print it to the screen first?)
 2. Store the data packets to memory (Note: Arduino built-in memory is NOT enough. We may need an SD card for this)
 3. Refer to the Motor Controller's CAN Protocol docs, translate the data to readable information (This is done in a PC connected to the arduino, or after fetching the data from the Arduino)
 
