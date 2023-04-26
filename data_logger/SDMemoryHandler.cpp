@@ -1,7 +1,11 @@
 #include "SDMemoryHandler.h"
 
-void SDMemoryHandler::init(){
+void SDMemoryHandler::init(uint8_t sd_cspin){
     //Initialize the SD Memory
+    while(!SD.begin(sd_cspin)){
+        Serial.println("SD Card Initialization Failed");
+        delay(1000);
+    }
 }
 
         //returns logMode
@@ -10,19 +14,34 @@ bool SDMemoryHandler::inLogMode(){
 }
 
 void SDMemoryHandler::enableLogMode(String fileName){
-    //if file is already opened (i.e. logMode already true), take appropriate action... ?
-    
     //open a file with the file object
+    if(this->logMode){
+      return;
+    }
+
+    file = SD.open(fileName, FILE_WRITE);
+    if(!file){
+      Serial.println("Cannot open the file: " + fileName);
+      return;
+    }
+    logMode = true;
+      
+    
 }
 
 void SDMemoryHandler::writeMemory(String data){
     if(!(this->logMode)){
         return;
     }
-
-    //Do Somehing here
+    file.println(data);
+    file.flush(); //Ensure all files are written to the SD Card
 }
 
 void SDMemoryHandler::disableLogMode(){
-    //Do something here
+    if(!this->logMode){
+      return;
+    }
+
+    file.close();
+    logMode = false;
 }
